@@ -19,10 +19,8 @@ echo
 
 read -e -p "Install PostgreSQL database? [y/n] " -i "n" installpg
 if [ "$installpg" = "y" ]; then
-  sudo add-apt-repository "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -sc)-pgdg main"
-  wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
   sudo apt-get update
-  sudo apt-get install postgresql-9.6 -y
+  sudo apt-get install postgresql postgresql-client -y 
   echo
   echo "You will now set the default password for the postgres user."
   echo "This will open a psql terminal, enter:"
